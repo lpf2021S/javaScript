@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function A() {
+            this.fn = function() {
+                console.log('hhhhh');
+            }
+        }
+        A.prototype.f = function() {
+            console.log('fffffff');
+        }
+
+        function B() {
+
+        }
+
+        function C() {
+
+        }
+        B.prototype = Object.create(A.prototype)
+        B.prototype.constructor = B
+        B.prototype.f = function() {
+            console.log('bbbbbbb');
+        }
+        C.prototype = Object.create(A)
+        C.prototype.constructor = C
+        C.prototype.f = function() {
+            console.log('cccccccccc');
+        }
+        let a = new A()
+        let b = new B()
+        let c = new C()
+        let arr = [a, b, c]
+        for (let b of arr) {
+            b.f();
+        }
+    </script>
+</body>
+
+</html>

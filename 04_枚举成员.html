@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Dog(name, age) {
+            this.name = name
+            this.age = age
+            this.say = function() {
+                console.log(name + ' say ' + '汪汪');
+            }
+        }
+        let i = new Dog('lll', 999)
+        for (let key in i) {
+            if (typeof i[key] != 'function')
+                console.log(key, i[key]);
+        }
+        // 函数枚举,返回数组
+        const keys = Object.keys(i)
+        console.log(keys);
+        const ent = Object.entries(i)
+        console.log(ent);
+        // 检测是否包含某个属性/成员
+        if ('name' in i)
+            console.log('have');
+    </script>
+</body>
+
+</html>
