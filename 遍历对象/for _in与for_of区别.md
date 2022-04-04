@@ -1,4 +1,4 @@
-##  For...of  和 for...in
+##  for...of  和 for...in
 
 #### 遍历
 
